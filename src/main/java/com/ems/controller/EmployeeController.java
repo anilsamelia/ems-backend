@@ -22,7 +22,6 @@ import java.util.Optional;
 @RequestMapping("/api/employees")
 @Tag(name = "Employees", description = "Employee management endpoints with CRUD operations, pagination, and advanced search")
 @SecurityRequirement(name = "Bearer Authentication")
-@CrossOrigin(origins = "*", maxAge = 3600)
 public class EmployeeController {
 
     @Autowired

@@ -19,7 +19,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 @Slf4j
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin(origins = "*", maxAge = 3600)
 @Tag(name = "Authentication", description = "Authentication endpoints for user login, signup, and token refresh")
 public class AuthenticationController {
 
