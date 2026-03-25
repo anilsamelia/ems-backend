@@ -67,10 +67,10 @@ public class SecurityConfig {
         return new JwtAuthenticationFilter(tokenProvider, userDetailsService);
     }
 
-    /*@Bean
-    CorsConfigurationSource corsConfigurationSource() {
+    @Bean
+   public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:5173", "http://localhost:3000", "https://ems-349572548293.europe-west1.run.app"));
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200","http://localhost:5173", "http://localhost:3000", "https://ems-*.run.app"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
         configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "X-Requested-With", "Accept", "Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers"));
         configuration.setExposedHeaders(List.of("Authorization"));
@@ -78,31 +78,8 @@ public class SecurityConfig {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
-    }*/
-
-    @Bean
-    public CorsConfigurationSource corsConfigurationSource() {
-        CorsConfiguration configuration = new CorsConfiguration();
-        
-        // Allow all origins
-        configuration.setAllowedOriginPatterns(List.of("*"));  // Use patterns for wildcard support
-    
-        // Allow all methods
-        configuration.setAllowedMethods(List.of("*"));
-    
-        // Allow all headers
-        configuration.setAllowedHeaders(List.of("*"));
-    
-        // Expose headers if needed
-        configuration.setExposedHeaders(List.of("Authorization"));
-    
-        // Allow cookies / Authorization header
-        configuration.setAllowCredentials(true);
-    
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
-        return source;
     }
+
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http, HandlerMappingIntrospector introspector) throws Exception {
