@@ -81,28 +81,28 @@ public class SecurityConfig {
     }*/
 
     @Bean
-CorsConfigurationSource corsConfigurationSource() {
-    CorsConfiguration configuration = new CorsConfiguration();
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        
+        // Allow all origins
+        configuration.setAllowedOriginPatterns(List.of("*"));  // Use patterns for wildcard support
     
-    // Allow all origins
-    configuration.setAllowedOriginPatterns(List.of("*"));  // Use patterns for wildcard support
-
-    // Allow all methods
-    configuration.setAllowedMethods(List.of("*"));
-
-    // Allow all headers
-    configuration.setAllowedHeaders(List.of("*"));
-
-    // Expose headers if needed
-    configuration.setExposedHeaders(List.of("Authorization"));
-
-    // Allow cookies / Authorization header
-    configuration.setAllowCredentials(true);
-
-    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-    source.registerCorsConfiguration("/**", configuration);
-    return source;
-}
+        // Allow all methods
+        configuration.setAllowedMethods(List.of("*"));
+    
+        // Allow all headers
+        configuration.setAllowedHeaders(List.of("*"));
+    
+        // Expose headers if needed
+        configuration.setExposedHeaders(List.of("Authorization"));
+    
+        // Allow cookies / Authorization header
+        configuration.setAllowCredentials(true);
+    
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
+    }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http, HandlerMappingIntrospector introspector) throws Exception {
