@@ -30,7 +30,7 @@ public interface EmployeeService {
     Page<Employee> getEmployeesByDeptAndDesignationWithPagination(String dept, String designation, Pageable pageable);
     Page<Employee> getAllEmployeesSortedBySalaryDescendingWithPagination(Pageable pageable);
     Page<Employee> getAllEmployeesSortedByNameAscendingWithPagination(Pageable pageable);
-    Page<Employee> searchEmployeesByMultipleCriteriaWithPagination(String dept, String designation,String status, String doj, Double minSalary, Double maxSalary, Pageable pageable);
+    Page<Employee> searchEmployeesByMultipleCriteriaWithPagination(String dept, String designation, String status, Double minSalary, Double maxSalary, String name, String email, Pageable pageable);
 
     // ============== UTILITY METHODS ==============
 

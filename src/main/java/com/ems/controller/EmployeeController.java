@@ -107,11 +107,12 @@ public class EmployeeController {
             @Parameter(description = "Department filter (optional)") @RequestParam(required = false) String dept,
             @Parameter(description = "Designation filter (optional)") @RequestParam(required = false) String designation,
             @Parameter(description = "active/inactive (optional)") @RequestParam(required = false) String status,
-            @Parameter(description = "Date of Joining (optional)") @RequestParam(required = false) String doj,
             @Parameter(description = "Minimum salary filter (optional)") @RequestParam(required = false) Double minSalary,
             @Parameter(description = "Maximum salary filter (optional)") @RequestParam(required = false) Double maxSalary,
+            @Parameter(description = "Name filter (optional, partial match)") @RequestParam(required = false) String name,
+            @Parameter(description = "Email filter (optional, partial match)") @RequestParam(required = false) String email,
             Pageable pageable) {
-        Page<Employee> employees = employeeService.searchEmployeesByMultipleCriteriaWithPagination(dept, designation,status, doj, minSalary, maxSalary, pageable);
+        Page<Employee> employees = employeeService.searchEmployeesByMultipleCriteriaWithPagination(dept, designation, status, minSalary, maxSalary, name, email, pageable);
         return ResponseEntity.ok(employees);
     }
 

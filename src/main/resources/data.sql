@@ -1,4 +1,3 @@
--- Insert Employees--
 INSERT INTO EMPLOYEE (NAME, EMAIL, DEPT, DESIGNATION, SALARY, SUPERVISOR, ADDRESS, DOJ) VALUES ('Alice Johnson', 'alice.johnson@example.com', 'IT', 'Developer', 60000.0, 'John Smith', '123 Main St', '2023-01-15');
 INSERT INTO EMPLOYEE (NAME, EMAIL, DEPT, DESIGNATION, SALARY, SUPERVISOR, ADDRESS, DOJ) VALUES ('Bob Williams', 'bob.williams@example.com', 'HR', 'Manager', 75000.0, 'Jane Doe', '456 Oak Ave', '2022-06-20');
 INSERT INTO EMPLOYEE (NAME, EMAIL, DEPT, DESIGNATION, SALARY, SUPERVISOR, ADDRESS, DOJ) VALUES ('Charlie Brown', 'charlie.brown@example.com', 'IT', 'Senior Developer', 85000.0, 'John Smith', '789 Pine Rd', '2021-03-10');
@@ -98,16 +97,13 @@ INSERT INTO EMPLOYEE (NAME, EMAIL, DEPT, DESIGNATION, SALARY, SUPERVISOR, ADDRES
 INSERT INTO EMPLOYEE (NAME, EMAIL, DEPT, DESIGNATION, SALARY, SUPERVISOR, ADDRESS, DOJ) VALUES ('Ronin Luna', 'ronin.luna@example.com', 'Sales', 'Quota Manager', 61000.0, 'Michael Wilson', '159 Birch St', '2022-11-20');
 INSERT INTO EMPLOYEE (NAME, EMAIL, DEPT, DESIGNATION, SALARY, SUPERVISOR, ADDRESS, DOJ) VALUES ('Sterling Mullen', 'sterling.mullen@example.com', 'IT', 'Technical Lead', 85000.0, 'John Smith', '357 Spruce Rd', '2021-12-28');
 INSERT INTO EMPLOYEE (NAME, EMAIL, DEPT, DESIGNATION, SALARY, SUPERVISOR, ADDRESS, DOJ) VALUES ('Tatum Gilmore', 'tatum.gilmore@example.com', 'HR', 'Succession Planner', 68000.0, 'Jane Doe', '456 Willow St', '2020-01-10');
-INSERT INTO EMPLOYEE (NAME, EMAIL, DEPT, DESIGNATION, SALARY, SUPERVISOR, ADDRESS, DOJ) VALUES ('Unity Wade', 'unity.wade@example.com', 'Finance', 'Operations Manager', 76000.0, 'Robert Davis', '654 Ash Rd', '2021-02-18');
-INSERT INTO EMPLOYEE (NAME, EMAIL, DEPT, DESIGNATION, SALARY, SUPERVISOR, ADDRESS, DOJ) VALUES ('Vaughan Farley', 'vaughan.farley@example.com', 'Sales', 'Performance Manager', 63000.0, 'Michael Wilson', '789 Oak Ave', '2022-03-25');
-INSERT INTO EMPLOYEE (NAME, EMAIL, DEPT, DESIGNATION, SALARY, SUPERVISOR, ADDRESS, DOJ) VALUES ('Waverly Hardin', 'waverly.hardin@example.com', 'IT', 'Integration Specialist', 66000.0, 'John Smith', '321 Maple Rd', '2023-04-30');
-INSERT INTO EMPLOYEE (NAME, EMAIL, DEPT, DESIGNATION, SALARY, SUPERVISOR, ADDRESS, DOJ) VALUES ('Xanthe Spears', 'xanthe.spears@example.com', 'HR', 'Engagement Manager', 59000.0, 'Jane Doe', '147 Pine Ave', '2023-05-15');
-INSERT INTO EMPLOYEE (NAME, EMAIL, DEPT, DESIGNATION, SALARY, SUPERVISOR, ADDRESS, DOJ) VALUES ('Yendy Trevino', 'yendy.trevino@example.com', 'Finance', 'Planning Manager', 79000.0, 'Robert Davis', '258 Elm St', '2020-06-22');
-INSERT INTO EMPLOYEE (NAME, EMAIL, DEPT, DESIGNATION, SALARY, SUPERVISOR, ADDRESS, DOJ) VALUES ('Zeke Schroeder', 'zeke.schroeder@example.com', 'Sales', 'Sales Intelligence Manager', 71000.0, 'Michael Wilson', '369 Cedar Rd', '2021-07-30');
+INSERT INTO EMPLOYEE (NAME, EMAIL, DEPT, DESIGNATION, SALARY, SUPERVISOR, ADDRESS, DOJ) VALUES ('Anil Kumar', 'anil.p.kumar@capgemini.com', 'IT', 'DEVELOPER', 68000.0, 'Mik', 'Noida UP', '2025-04-22');
 UPDATE EMPLOYEE SET STATUS = 'active';
 UPDATE EMPLOYEE SET STATUS = 'inactive' WHERE DOJ < '2020-01-01';
 UPDATE EMPLOYEE SET STATUS = 'inactive' WHERE EMAIL = 'adam.nelson@example.com';
 UPDATE EMPLOYEE SET STATUS = 'inactive' WHERE EMAIL = 'quinn.adams@example.com';
+UPDATE employee SET Designation = UPPER(Designation);
+UPDATE employee SET DEPT = UPPER(DEPT);
 CREATE VIEW employee_statistics_view AS
 SELECT
     COUNT(*) AS total_employees,

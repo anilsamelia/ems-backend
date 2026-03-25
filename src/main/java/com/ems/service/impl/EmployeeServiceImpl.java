@@ -182,8 +182,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     /**
      * Advanced search with multiple criteria and pagination
      */
-    public Page<Employee> searchEmployeesByMultipleCriteriaWithPagination(String dept, String designation, String status, String doj, Double minSalary, Double maxSalary, Pageable pageable) {
-        return repository.searchByMultipleCriteria(dept, designation,status, doj, minSalary, maxSalary, pageable);
+    public Page<Employee> searchEmployeesByMultipleCriteriaWithPagination(String dept, String designation, String status, Double minSalary, Double maxSalary, String name, String email, Pageable pageable) {
+        return repository.searchByMultipleCriteria(dept, designation, status, minSalary, maxSalary, name, email, pageable);
     }
 
 

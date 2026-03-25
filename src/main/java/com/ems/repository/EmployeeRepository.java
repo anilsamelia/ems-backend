@@ -70,16 +70,18 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
            "(:dept IS NULL OR e.dept = :dept) AND " +
            "(:designation IS NULL OR e.designation = :designation) AND " +
            "(:status IS NULL OR e.status = :status) AND " +
-           "(:doj IS NULL OR e.doj = :doj) AND " +
            "(:minSalary IS NULL OR e.salary >= :minSalary) AND " +
-           "(:maxSalary IS NULL OR e.salary <= :maxSalary)")
+           "(:maxSalary IS NULL OR e.salary <= :maxSalary) AND " +
+           "(:name IS NULL OR LOWER(e.name) LIKE LOWER(CONCAT('%', :name, '%'))) AND " +
+           "(:email IS NULL OR LOWER(e.email) LIKE LOWER(CONCAT('%', :email, '%')))")
     Page<Employee> searchByMultipleCriteria(
             @Param("dept") String dept,
             @Param("designation") String designation,
             @Param("status") String status,
-            @Param("doj") String doj,
             @Param("minSalary") Double minSalary,
             @Param("maxSalary") Double maxSalary,
+            @Param("name") String name,
+            @Param("email") String email,
             Pageable pageable);
 
 
