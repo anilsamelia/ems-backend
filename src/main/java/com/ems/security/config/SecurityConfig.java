@@ -67,7 +67,7 @@ public class SecurityConfig {
         return new JwtAuthenticationFilter(tokenProvider, userDetailsService);
     }
 
-    @Bean
+    /*@Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(Arrays.asList("http://localhost:5173", "http://localhost:3000", "https://ems-349572548293.europe-west1.run.app"));
@@ -78,7 +78,31 @@ public class SecurityConfig {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
-    }
+    }*/
+
+    @Bean
+CorsConfigurationSource corsConfigurationSource() {
+    CorsConfiguration configuration = new CorsConfiguration();
+    
+    // Allow all origins
+    configuration.setAllowedOriginPatterns(List.of("*"));  // Use patterns for wildcard support
+
+    // Allow all methods
+    configuration.setAllowedMethods(List.of("*"));
+
+    // Allow all headers
+    configuration.setAllowedHeaders(List.of("*"));
+
+    // Expose headers if needed
+    configuration.setExposedHeaders(List.of("Authorization"));
+
+    // Allow cookies / Authorization header
+    configuration.setAllowCredentials(true);
+
+    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+    source.registerCorsConfiguration("/**", configuration);
+    return source;
+}
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http, HandlerMappingIntrospector introspector) throws Exception {
